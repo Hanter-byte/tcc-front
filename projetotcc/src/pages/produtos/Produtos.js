@@ -4,15 +4,15 @@ import './styles.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
-import logoCadastro from './../assets/produto.png'
+import logoCadastro from './../../assets/produto.png'
+import { Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 
 export default function Produtos() {
+
   const baseUrl = "https://localhost:44340/api/produtos";
-
   const [data, setData] = useState([]);
-  const [updateData, setUpdateData] = useState(true);
-
+  const [setUpdateData] = useState(true);
   const [modalIncluir, setModalIncluir] = useState(false);
   const [modalEditar, setModalEditar] = useState(false);
   const [modalExcluir, setModalExcluir] = useState(false);
@@ -62,7 +62,6 @@ export default function Produtos() {
 
   const pedidoPost = async () => {
     delete produtoSelecionado.id;
-    // produtoSelecionado.telefone = parseInt(produtoSelecionado.telefone);
     await axios.post(baseUrl, produtoSelecionado)
       .then(response => {
         setData(data.concat(response.data));
@@ -87,7 +86,7 @@ export default function Produtos() {
             produto.categoriaId = resposta.categoriaid
           }
         });
-        setUpdateData(true);
+        //setUpdateData(true); Tela não fecha
         abrirFecharModalEditar();
       }).catch(error => {
         console.log(error);
@@ -98,7 +97,7 @@ export default function Produtos() {
     await axios.delete(baseUrl + "/" + produtoSelecionado.produtoId)
       .then(response => {
         setData(data.filter(produto => produto.produtoId !== response.data));
-        setUpdateData(true);
+        //setUpdateData(true); Tela não fecha
         abrirFecharModalExcluir();
       }).catch(error => {
         console.log(error);
@@ -115,10 +114,10 @@ export default function Produtos() {
       <h3>Cadastro de Produtos</h3>
       <header>
         <img src={logoCadastro} alt='Cadastro' />
-        <button className="btn btn-success" onClick={() => abrirFecharModalIncluir()}>Incluir Novo Produto</button>
+        <Button variant='outline-secondary' onClick={() => abrirFecharModalIncluir()}><i className='fas fa-plus me-2'></i>Incluir Novo Produto</Button>
       </header>
-      <table className='table table-bordered'>
-        <thead>
+      <table className='table table-striped table-hover'>
+        <thead className='table-dark mt-3'>
           <tr>
             <th>Id</th>
             <th>Nome</th>
@@ -136,13 +135,13 @@ export default function Produtos() {
               <td>{produto.produtoId}</td>
               <td>{produto.nome}</td>
               <td>{produto.descricao}</td>
-              <td>{produto.preco}</td>
+              <td>R$ {produto.preco}</td>
               <td>{produto.estoque}</td>
               <td>{produto.imagemUrl}</td>
               <td>{produto.categoriaId}</td>
               <td>
-                <button className='btn btn-primary' onClick={() => selecionarProduto(produto, "Editar")}>Editar</button> {" "}
-                <button className='btn btn-danger' onClick={() => selecionarProduto(produto, "Excluir")}>Excluir</button>
+                <button className='btn btn-sm btn-outline-primary me-2' onClick={() => selecionarProduto(produto, "Editar")}> <i className='fas fa-user-edit me-2'></i>Editar</button> {" "}
+                <button className='btn btn-sm btn-outline-danger me-2' onClick={() => selecionarProduto(produto, "Excluir")}>  <i className='fas fa-user-times me-2'></i>Excluir</button>
               </td>
             </tr>
           ))}
@@ -206,10 +205,10 @@ export default function Produtos() {
             <input type="text" className="form-control" name="estoque" onChange={handleChange}
               value={produtoSelecionado && produtoSelecionado.estoque} /><br />
             <label>ImagemUrl: </label><br />
-            <input type="text" className="form-control" name="imagemurl" onChange={handleChange}
+            <input type="text" className="form-control" name="imagemUrl" onChange={handleChange}
               value={produtoSelecionado && produtoSelecionado.imagemUrl} /><br />
             <label>CategoriaId: </label><br />
-            <input type="text" className="form-control" name="categoriaid" onChange={handleChange}
+            <input type="text" className="form-control" name="categoriaId" onChange={handleChange}
               value={produtoSelecionado && produtoSelecionado.categoriaId} /><br />
           </div>
         </ModalBody>

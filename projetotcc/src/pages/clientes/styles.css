@@ -1,30 +1,29 @@
-.produto-container {
+.cliente-container {
     width: 100%;
     max-width: 1200px;
     padding: 5 10px;
     margin: 30px auto;
   }
   
-  .produto-container header{
+  .cliente-container header{
     display: flex;
     align-items: center;
   }
   
-  .produto-container header img{
+  .cliente-container header img{
     height: 50px;
   }
   
-  .produto-container header button{
+  .cliente-container header button{
     height: 50px;
     width: 200px;
     border-radius: 5px;
     border: 1px solid #DCDCE6;
-    background: green;
     margin-left: 16px;
     transition: border-color 0.5s;
   }
   
-  .produto-container header button:hover{
+  .cliente-container header button:hover{
     border-color: #510bac;
   }
   
