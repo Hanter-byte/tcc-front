@@ -169,7 +169,7 @@ export default function Clientes() {
       <Modal isOpen={modalIncluir}>
         <ModalHeader>Incluir Clientes</ModalHeader>
         <ModalBody>
-          <div className="form-group">
+          {/* <div className="form-group">
             <label>Nome: </label>
             <br />
             <input type="text" className="form-control" name="nome" onChange={handleChange} />
@@ -182,27 +182,27 @@ export default function Clientes() {
             <br />
             <input type="text" className="form-control" name="telefone" onChange={handleChange} />
             <br />
-          </div>
+          </div> */}
 
-          {/* <Form>
+          <Form>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Label>Nome</Form.Label>
+                <Form.Control type="text" name="nome" onChange={handleChange} />
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+              <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="text" name="email" onChange={handleChange} />
               </Form.Group>
             </Row>
 
-            <Form.Group className="mb-3" controlId="formGridAddress1">
-              <Form.Label>Address</Form.Label>
-              <Form.Control placeholder="1234 Main St" />
+            <Form.Group className="mb-3" controlId="formGridFone">
+              <Form.Label>Telefone</Form.Label>
+              <Form.Control type="text" name="telefone" onChange={handleChange} />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formGridAddress2">
+            {/* <Form.Group className="mb-3" controlId="formGridAddress2">
               <Form.Label>Address 2</Form.Label>
               <Form.Control placeholder="Apartment, studio, or floor" />
             </Form.Group>
@@ -225,8 +225,8 @@ export default function Clientes() {
                 <Form.Label>Zip</Form.Label>
                 <Form.Control />
               </Form.Group>
-            </Row>
-          </Form> */}
+            </Row> */}
+          </Form>
 
         </ModalBody>
         <ModalFooter>

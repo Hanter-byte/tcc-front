@@ -5,7 +5,7 @@ import { Card, Row, Col } from 'react-bootstrap';
 export default function Dashboard() {
     return (
         <>
-            <TitlePage title='HardwareTech' />
+            <TitlePage title='Dashboard' />
             <div className='mt-3'>
                 <Row>
                     <Col>
