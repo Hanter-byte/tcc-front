@@ -14,6 +14,13 @@ export default function Menu() {
             <Nav.Link
               className={(navData) => (navData.isActive ? "Active" : "")}
               as={NavLink}
+              to="/manutencoes/"
+            >
+              Manutenções
+            </Nav.Link>
+            <Nav.Link
+              className={(navData) => (navData.isActive ? "Active" : "")}
+              as={NavLink}
               to="/clientes/"
             >
               Clientes
@@ -31,13 +38,6 @@ export default function Menu() {
               to="/categorias/"
             >
               Categorias
-            </Nav.Link>
-            <Nav.Link
-              className={(navData) => (navData.isActive ? "Active" : "")}
-              as={NavLink}
-              to="/manutencoes/"
-            >
-              Manutenções
             </Nav.Link>
           </Nav>
           <Nav>

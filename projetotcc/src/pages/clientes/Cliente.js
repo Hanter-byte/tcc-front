@@ -21,6 +21,7 @@ export default function Clientes() {
 
   const [clienteSelecionado, setClienteSelecionado] = useState({
     id: "",
+    cpf: "",
     nome: "",
     email: "",
     telefone: "",
@@ -85,6 +86,7 @@ export default function Clientes() {
         var dadosAuxiliar = data;
         dadosAuxiliar.map((cliente) => {
           if (cliente.clienteId === clienteSelecionado.id) {
+            cliente.cpf = resposta.cpf;
             cliente.nome = resposta.nome;
             cliente.email = resposta.email;
             cliente.telefone = resposta.telefone;
@@ -132,6 +134,7 @@ export default function Clientes() {
         <thead className="table-dark mt-3">
           <tr>
             <th>Id</th>
+            <th>Cpf</th>
             <th>Nome</th>
             <th>Email</th>
             <th>Telefone</th>
@@ -142,6 +145,7 @@ export default function Clientes() {
           {data.map((cliente) => (
             <tr key={cliente.clienteId}>
               <td>{cliente.clienteId}</td>
+              <td>{cliente.cpf}</td>
               <td>{cliente.nome}</td>
               <td>{cliente.email}</td>
               <td>{cliente.telefone}</td>
@@ -191,11 +195,17 @@ export default function Clientes() {
                 <Form.Control type="text" name="nome" onChange={handleChange} />
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="text" name="email" onChange={handleChange} />
+              <Form.Group as={Col} controlId="formGridcpf">
+                <Form.Label>Cpf</Form.Label>
+                <Form.Control type="text" name="cpf" onChange={handleChange} />
               </Form.Group>
             </Row>
+
+            <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Label>Email</Form.Label>
+              <Form.Control type="text" name="email" onChange={handleChange} />
+            </Form.Group>
+
 
             <Form.Group className="mb-3" controlId="formGridFone">
               <Form.Label>Telefone</Form.Label>
@@ -255,6 +265,16 @@ export default function Clientes() {
               name="nome"
               onChange={handleChange}
               value={clienteSelecionado && clienteSelecionado.nome}
+            />
+            <br />
+            <label>Cpf: </label>
+            <br />
+            <input
+              type="text"
+              className="form-control"
+              name="cpf"
+              onChange={handleChange}
+              value={clienteSelecionado && clienteSelecionado.cpf}
             />
             <br />
             <label>Email: </label>

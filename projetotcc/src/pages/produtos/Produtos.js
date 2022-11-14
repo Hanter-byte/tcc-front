@@ -135,7 +135,7 @@ export default function Produtos() {
               <td>{produto.produtoId}</td>
               <td>{produto.nome}</td>
               <td>{produto.descricao}</td>
-              <td>R$ {produto.preco}</td>
+              <td>R${produto.preco}</td>
               <td>{produto.estoque}</td>
               <td>{produto.imagemUrl}</td>
               <td>{produto.categoriaId}</td>

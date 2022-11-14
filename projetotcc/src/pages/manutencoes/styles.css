@@ -1,38 +1,66 @@
 .manutencao-container {
-    width: 100%;
-    max-width: 1200px;
-    padding: 5 10px;
-    margin: 30px auto;
-  }
-  
-  .manutencao-container header{
-    display: flex;
-    align-items: center;
-  }
-  
-  .manutencao-container header img{
-    height: 50px;
-  }
-  
-  .manutencao-container header button{
-    height: 50px;
-    width: 200px;
-    border-radius: 5px;
-    border: 1px solid #DCDCE6;
-    margin-left: 16px;
-    transition: border-color 0.5s;
-  }
-  
-  .manutencao-container header button:hover{
-    border-color: #510bac;
-  }
-  
-  table, th, td {
-    border: 1px solid black;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 20px;
-    text-align: left;
-  }
-  
+  width: 100%;
+  max-width: 1200px;
+  padding: 5 10px;
+  margin: 30px auto;
+}
+
+.manutencao-container header{
+  display: flex;
+  align-items: center;
+}
+
+.manutencao-container header img{
+  height: 50px;
+}
+
+.manutencao-container header img{
+  height: 50px;
+}
+
+.manutencao-container header a{
+  width: 250px;
+  margin-left: auto;
+  margin-top: 0;
+}
+
+.manutencao-container header button{
+  height: 50px;
+  width: 200px;
+  border-radius: 5px;
+  border: 1px solid #DCDCE6;
+  margin-left: 16px;
+  transition: border-color 0.5s;
+}
+
+.manutencao-container h1 {
+  margin-top: 20px;
+  margin-bottom: 24px;
+}
+
+.manutencao-container ul {
+  display: grid;
+  padding: 0 25px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 35px;
+  list-style: none;
+}
+
+.manutencao-container ul li{
+  background: #DCDCE6;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.manutencao-container ul li button {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  border: 0;
+  background: transparent;  
+}
+
+.manutencao-container ul li button + button{
+  top: 50px;  
+}

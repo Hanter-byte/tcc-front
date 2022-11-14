@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
+import { FiEdit, FiDelete } from 'react-icons/fi';
 
 export default function Manutencoes() {
 
@@ -67,7 +68,7 @@ export default function Manutencoes() {
 
   const pedidoPost = async () => {
     delete manutencaoSelecionado.id;
-    manutencaoSelecionado.telefone = parseInt(manutencaoSelecionado.telefone);
+    //manutencaoSelecionado.telefone = parseInt(manutencaoSelecionado.telefone);
     await axios
       .post(baseUrl, manutencaoSelecionado)
       .then((response) => {
@@ -122,7 +123,7 @@ export default function Manutencoes() {
   return (
     <div className="manutencao-container">
       <br />
-      <h3>Cadastro de Manutenções</h3>
+      <h3>Relação de Manutencão</h3>
       <header>
         <img src={logoCadastro} alt="Cadastro" />
         <Button
@@ -132,7 +133,50 @@ export default function Manutencoes() {
           <i className="fas fa-plus me-2"></i>Nova Manutencão
         </Button>
       </header>
-      <table className="table table-striped table-hover">
+
+      <br></br>
+      <ul>
+        {data.map(manutencao => (
+          <li key={manutencao.manutencaoId}>
+            <b>Nome: </b>{manutencao.nome}<br />
+            <b>Descricao: </b>{manutencao.descricao}<br />
+            <b>Preço: R$</b>{manutencao.preco}<br />
+            <b>ClienteId: </b>{manutencao.clienteId}<br />
+            <b>ProdutoId: </b>{manutencao.produtoId}<br />
+            <button onClick={() => selecionarManutencao(manutencao, "Editar")}
+            >
+              <FiEdit size="25" color="#17202a" />
+            </button>
+            <button type="button" onClick={() => selecionarManutencao(manutencao, "Excluir")}
+            >
+              <FiDelete size="25" color="#17202a" />
+            </button>
+          </li>
+        ))}
+      </ul>
+      {/* ) : (
+        <ul>
+          {manutencao.map(manutencao => (
+            <li key={manutencao.manutencaoId}>
+              <b>Nome:</b>{manutencao.nome}<br /><br />
+              <b>Descricao:</b>{manutencao.descricao}<br /><br />
+              <b>Preço:</b>{manutencao.preco}<br /><br />
+              <b>ClienteId:</b>{manutencao.clienteId}<br /><br />
+              <b>ProdutoId:</b>{manutencao.produtoId}<br /><br />
+
+              <button className="btn btn-primary" onClick={() => pedidoPut()}>
+                Editar
+              </button>
+
+              <button className="btn btn-danger" onClick={() => abrirFecharModalEditar()}>
+                Cancelar
+              </button>
+            </li>
+          ))}
+        </ul>
+      )} */}
+
+      {/* <table className="table table-striped table-hover">
         <thead className="table-dark mt-3">
           <tr>
             <th>Id</th>
@@ -172,7 +216,7 @@ export default function Manutencoes() {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> */}
 
       <Modal isOpen={modalIncluir}>
         <ModalHeader>Nova Manutenção</ModalHeader>
@@ -244,7 +288,7 @@ export default function Manutencoes() {
       </Modal>
 
       <Modal isOpen={modalEditar}>
-        <ModalHeader>Editar Cliente</ModalHeader>
+        <ModalHeader>Editar Manutenção</ModalHeader>
         <ModalBody>
           <div className="form-group">
             <label>ID: </label>
@@ -265,24 +309,44 @@ export default function Manutencoes() {
               value={manutencaoSelecionado && manutencaoSelecionado.nome}
             />
             <br />
-            <label>Email: </label>
+            <label>Descrição: </label>
             <br />
             <input
               type="text"
               className="form-control"
-              name="email"
+              name="descricao"
               onChange={handleChange}
-              value={manutencaoSelecionado && manutencaoSelecionado.email}
+              value={manutencaoSelecionado && manutencaoSelecionado.descricao}
             />
             <br />
-            <label>Telefone: </label>
+            <label>ClienteId: </label>
             <br />
             <input
               type="text"
               className="form-control"
-              name="telefone"
+              name="clienteid"
               onChange={handleChange}
-              value={manutencaoSelecionado && manutencaoSelecionado.telefone}
+              value={manutencaoSelecionado && manutencaoSelecionado.clienteId}
+            />
+            <br />
+            <label>ProdutoId: </label>
+            <br />
+            <input
+              type="text"
+              className="form-control"
+              name="produtoid"
+              onChange={handleChange}
+              value={manutencaoSelecionado && manutencaoSelecionado.produtoId}
+            />
+            <br />
+            <label>Preço: </label>
+            <br />
+            <input
+              type="text"
+              className="form-control"
+              name="preco"
+              onChange={handleChange}
+              value={manutencaoSelecionado && manutencaoSelecionado.preco}
             />
             <br />
           </div>
