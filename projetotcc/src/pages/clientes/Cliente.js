@@ -173,21 +173,6 @@ export default function Clientes() {
       <Modal isOpen={modalIncluir}>
         <ModalHeader>Incluir Clientes</ModalHeader>
         <ModalBody>
-          {/* <div className="form-group">
-            <label>Nome: </label>
-            <br />
-            <input type="text" className="form-control" name="nome" onChange={handleChange} />
-            <br />
-            <label>Email: </label>
-            <br />
-            <input type="text" className="form-control" name="email" onChange={handleChange} />
-            <br />
-            <label>telefone: </label>
-            <br />
-            <input type="text" className="form-control" name="telefone" onChange={handleChange} />
-            <br />
-          </div> */}
-
           <Form>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridEmail">
@@ -206,36 +191,10 @@ export default function Clientes() {
               <Form.Control type="text" name="email" onChange={handleChange} />
             </Form.Group>
 
-
             <Form.Group className="mb-3" controlId="formGridFone">
               <Form.Label>Telefone</Form.Label>
               <Form.Control type="text" name="telefone" onChange={handleChange} />
             </Form.Group>
-
-            {/* <Form.Group className="mb-3" controlId="formGridAddress2">
-              <Form.Label>Address 2</Form.Label>
-              <Form.Control placeholder="Apartment, studio, or floor" />
-            </Form.Group>
-
-            <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridCity">
-                <Form.Label>City</Form.Label>
-                <Form.Control />
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridState">
-                <Form.Label>State</Form.Label>
-                <Form.Select defaultValue="Choose...">
-                  <option>Choose...</option>
-                  <option>...</option>
-                </Form.Select>
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridZip">
-                <Form.Label>Zip</Form.Label>
-                <Form.Control />
-              </Form.Group>
-            </Row> */}
           </Form>
 
         </ModalBody>

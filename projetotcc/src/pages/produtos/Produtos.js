@@ -1,12 +1,14 @@
 import React from 'react';
 import './styles.css';
-
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import logoCadastro from './../../assets/produto.png'
 import { Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
 
 export default function Produtos() {
 
@@ -151,32 +153,36 @@ export default function Produtos() {
       <Modal isOpen={modalIncluir}>
         <ModalHeader>Incluir Produtos</ModalHeader>
         <ModalBody>
-          <div className="form-group">
-            <label>Nome: </label>
-            <br />
-            <input type="text" className="form-control" name="nome" onChange={handleChange} />
-            <br />
-            <label>Descrição: </label>
-            <br />
-            <input type="text" className="form-control" name="descricao" onChange={handleChange} />
-            <br />
-            <label>Preço: </label>
-            <br />
-            <input type="text" className="form-control" name="preco" onChange={handleChange} />
-            <br />
-            <label>Estoque: </label>
-            <br />
-            <input type="text" className="form-control" name="estoque" onChange={handleChange} />
-            <br />
-            <label>ImagemUrl: </label>
-            <br />
-            <input type="text" className="form-control" name="imagemurl" onChange={handleChange} />
-            <br />
-            <label>CategoriaId: </label>
-            <br />
-            <input type="text" className="form-control" name="categoriaid" onChange={handleChange} />
-            <br />
-          </div>
+          <Form>
+            <Row className="mb-3">
+              <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Label>Nome</Form.Label>
+                <Form.Control type="text" name="nome" onChange={handleChange} />
+              </Form.Group>
+              <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Label>Descrição</Form.Label>
+                <Form.Control type="text" name="descricao" onChange={handleChange} />
+              </Form.Group>
+            </Row>
+            <Form.Group className="mb-3" controlId="formGridCliente">
+              <Form.Label>Preço</Form.Label>
+              <Form.Control type="text" name="preco" onChange={handleChange} />
+            </Form.Group>
+            <Row className="mb-3">
+              <Form.Group as={Col} controlId="formGridProdutoId">
+                <Form.Label>Estoque</Form.Label>
+                <Form.Control type="text" name="estoque" onChange={handleChange} />
+              </Form.Group>
+              <Form.Group as={Col} controlId="formGridZip">
+                <Form.Label>ImagemUrl</Form.Label>
+                <Form.Control type="text" name="imagemurl" onChange={handleChange} />
+              </Form.Group>
+            </Row>
+            <Form.Group className="mb-3" controlId="formGridCliente">
+              <Form.Label>CategoriaId</Form.Label>
+              <Form.Control type="text" name="categoriaid" onChange={handleChange} />
+            </Form.Group>
+          </Form>
         </ModalBody>
         <ModalFooter>
           <button className="btn btn-primary" onClick={() => pedidoPost()}>Incluir</button>{"   "}

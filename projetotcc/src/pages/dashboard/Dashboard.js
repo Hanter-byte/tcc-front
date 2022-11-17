@@ -25,17 +25,17 @@ export default function Dashboard() {
                             </Card.Header>
                             <Card.Body>
                                 <Card.Title>
-                                    <h1 className='text-center'>256</h1>
+                                    <h1 className='text-center'>6</h1>
                                 </Card.Title>
                             </Card.Body>
                         </Card>
                     </Col>
                     <Col>
                         <Card border='warning'>
-                            <Card.Header>Manutenções Urgentes</Card.Header>
+                            <Card.Header>Ganhos Totais</Card.Header>
                             <Card.Body>
                                 <Card.Title>
-                                    <h1 className='text-center'>25</h1>
+                                    <h1 className='text-center'>R$800</h1>
                                 </Card.Title>
                             </Card.Body>
                         </Card>

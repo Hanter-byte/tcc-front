@@ -9,7 +9,8 @@ import { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
-import { FiEdit, FiDelete } from 'react-icons/fi';
+import { TbEdit } from 'react-icons/tb';
+import { RiDeleteBin2Line } from 'react-icons/ri';
 
 export default function Manutencoes() {
 
@@ -68,7 +69,6 @@ export default function Manutencoes() {
 
   const pedidoPost = async () => {
     delete manutencaoSelecionado.id;
-    //manutencaoSelecionado.telefone = parseInt(manutencaoSelecionado.telefone);
     await axios
       .post(baseUrl, manutencaoSelecionado)
       .then((response) => {
@@ -123,7 +123,7 @@ export default function Manutencoes() {
   return (
     <div className="manutencao-container">
       <br />
-      <h3>Relação de Manutencão</h3>
+      <h3>Relação de Manutencões</h3>
       <header>
         <img src={logoCadastro} alt="Cadastro" />
         <Button
@@ -145,97 +145,19 @@ export default function Manutencoes() {
             <b>ProdutoId: </b>{manutencao.produtoId}<br />
             <button onClick={() => selecionarManutencao(manutencao, "Editar")}
             >
-              <FiEdit size="25" color="#17202a" />
+              <TbEdit size="25" color="#17202a" />
             </button>
             <button type="button" onClick={() => selecionarManutencao(manutencao, "Excluir")}
             >
-              <FiDelete size="25" color="#17202a" />
+              <RiDeleteBin2Line size="25" color="#17202a" />
             </button>
           </li>
         ))}
       </ul>
-      {/* ) : (
-        <ul>
-          {manutencao.map(manutencao => (
-            <li key={manutencao.manutencaoId}>
-              <b>Nome:</b>{manutencao.nome}<br /><br />
-              <b>Descricao:</b>{manutencao.descricao}<br /><br />
-              <b>Preço:</b>{manutencao.preco}<br /><br />
-              <b>ClienteId:</b>{manutencao.clienteId}<br /><br />
-              <b>ProdutoId:</b>{manutencao.produtoId}<br /><br />
-
-              <button className="btn btn-primary" onClick={() => pedidoPut()}>
-                Editar
-              </button>
-
-              <button className="btn btn-danger" onClick={() => abrirFecharModalEditar()}>
-                Cancelar
-              </button>
-            </li>
-          ))}
-        </ul>
-      )} */}
-
-      {/* <table className="table table-striped table-hover">
-        <thead className="table-dark mt-3">
-          <tr>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>Descricao</th>
-            <th>Preço</th>
-            <th>ClienteId</th>
-            <th>ProdutoId</th>
-            <th>Operação</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((manutencao) => (
-            <tr key={manutencao.manutencaoId}>
-              <td>{manutencao.manutencaoId}</td>
-              <td>{manutencao.nome}</td>
-              <td>{manutencao.descricao}</td>
-              <td>R$ {manutencao.preco}</td>
-              <td>{manutencao.clienteId}</td>
-              <td>{manutencao.produtoId}</td>
-              <td>
-                <button
-                  className="btn btn-sm btn-outline-primary me-2"
-                  onClick={() => selecionarManutencao(manutencao, "Editar")}
-                >
-                  {" "}
-                  <i className="fas fa-user-edit me-2"></i>Editar
-                </button>{" "}
-                <button
-                  className="btn btn-sm btn-outline-danger me-2"
-                  onClick={() => selecionarManutencao(manutencao, "Excluir")}
-                >
-                  {" "}
-                  <i className="fas fa-user-times me-2"></i>Excluir
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table> */}
 
       <Modal isOpen={modalIncluir}>
         <ModalHeader>Nova Manutenção</ModalHeader>
         <ModalBody>
-          {/* <div className="form-group">
-            <label>Nome: </label>
-            <br />
-            <input type="text" className="form-control" name="nome" onChange={handleChange} />
-            <br />
-            <label>Email: </label>
-            <br />
-            <input type="text" className="form-control" name="email" onChange={handleChange} />
-            <br />
-            <label>telefone: </label>
-            <br />
-            <input type="text" className="form-control" name="telefone" onChange={handleChange} />
-            <br />
-          </div> */}
-
           <Form>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridEmail">
@@ -249,11 +171,6 @@ export default function Manutencoes() {
               </Form.Group>
             </Row>
 
-            {/* <Form.Group className="mb-3" controlId="formGridPreco">
-              <Form.Label>Preco</Form.Label>
-              <Form.Control type="text" name="preco" onChange={handleChange} />
-            </Form.Group> */}
-
             <Form.Group className="mb-3" controlId="formGridCliente">
               <Form.Label>ClienteId</Form.Label>
               <Form.Control type="text" name="clienteid" onChange={handleChange} />
@@ -264,14 +181,6 @@ export default function Manutencoes() {
                 <Form.Label>ProdutoId</Form.Label>
                 <Form.Control type="text" name="produtoid" onChange={handleChange} />
               </Form.Group>
-
-              {/* <Form.Group as={Col} controlId="formGridState">
-                <Form.Label>State</Form.Label>
-                <Form.Select defaultValue="Choose...">
-                  <option>Choose...</option>
-                  <option>...</option>
-                </Form.Select>
-              </Form.Group> */}
 
               <Form.Group as={Col} controlId="formGridZip">
                 <Form.Label>Preço</Form.Label>
@@ -367,7 +276,7 @@ export default function Manutencoes() {
 
       <Modal isOpen={modalExcluir}>
         <ModalBody>
-          Confirma a exclusão deste cliente :{" "}
+          Confirma a exclusão desta manutenção :{" "}
           {manutencaoSelecionado && manutencaoSelecionado.nome} ?
         </ModalBody>
         <ModalFooter>
