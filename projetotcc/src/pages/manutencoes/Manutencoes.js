@@ -74,6 +74,7 @@ export default function Manutencoes() {
       .then((response) => {
         setData(data.concat(response.data));
         abrirFecharModalIncluir();
+        alert("Manutenção cadastrado com sucesso!");
       })
       .catch((error) => {
         console.log(error);
@@ -97,6 +98,7 @@ export default function Manutencoes() {
         });
         //setUpdateData(true); Tela não fecha
         abrirFecharModalEditar();
+        alert("Manutenção editada com sucesso!");
       })
       .catch((error) => {
         console.log(error);
@@ -110,6 +112,7 @@ export default function Manutencoes() {
         setData(data.filter((manutencao) => manutencao.manutencaoId !== response.data));
         //setUpdateData(true); Tela não fecha
         abrirFecharModalExcluir();
+        alert("Manutenção excluida com sucesso!");
       })
       .catch((error) => {
         console.log(error);

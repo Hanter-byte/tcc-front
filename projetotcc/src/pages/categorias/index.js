@@ -1,6 +1,5 @@
 import React from 'react';
 import './styles.css';
-
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
@@ -62,6 +61,7 @@ export default function Categorias() {
       .then(response => {
         setData(data.concat(response.data));
         abrirFecharModalIncluir();
+        alert("Categoria cadastrada com sucesso!");
       }).catch(error => {
         console.log(error);
       })
@@ -80,6 +80,7 @@ export default function Categorias() {
         });
         //setUpdateData(true); Tela não fecha
         abrirFecharModalEditar();
+        alert("Categoria editada com sucesso!");
       }).catch(error => {
         console.log(error);
       })
@@ -91,6 +92,7 @@ export default function Categorias() {
         setData(data.filter(categoria => categoria.categoriaId !== response.data));
        // setUpdateData(true);
         abrirFecharModalExcluir();
+        alert("Categoria excluida com sucesso!");
       }).catch(error => {
         console.log(error);
       })

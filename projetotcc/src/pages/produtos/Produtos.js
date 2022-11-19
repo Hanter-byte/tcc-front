@@ -68,6 +68,7 @@ export default function Produtos() {
       .then(response => {
         setData(data.concat(response.data));
         abrirFecharModalIncluir();
+        alert("Produto cadastrado com sucesso!");
       }).catch(error => {
         console.log(error);
       })
@@ -90,6 +91,7 @@ export default function Produtos() {
         });
         //setUpdateData(true); Tela não fecha
         abrirFecharModalEditar();
+        alert("Produto editado com sucesso!");
       }).catch(error => {
         console.log(error);
       })
@@ -101,6 +103,7 @@ export default function Produtos() {
         setData(data.filter(produto => produto.produtoId !== response.data));
         //setUpdateData(true); Tela não fecha
         abrirFecharModalExcluir();
+        alert("Produto excluido com sucesso!");
       }).catch(error => {
         console.log(error);
       })

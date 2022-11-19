@@ -10,6 +10,8 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 
+import gerarPdf from '../../components/GerarPdf';
+
 export default function Clientes() {
 
   const baseUrl = "https://localhost:44340/api/clientes";
@@ -72,6 +74,7 @@ export default function Clientes() {
       .then((response) => {
         setData(data.concat(response.data));
         abrirFecharModalIncluir();
+        alert("Cliente cadastrado com sucesso!");
       })
       .catch((error) => {
         console.log(error);
@@ -94,6 +97,7 @@ export default function Clientes() {
         });
         //setUpdateData(true); Tela não fecha
         abrirFecharModalEditar();
+        alert("Cliente editado com sucesso!");
       })
       .catch((error) => {
         console.log(error);
@@ -107,6 +111,7 @@ export default function Clientes() {
         setData(data.filter((cliente) => cliente.clienteId !== response.data));
         //setUpdateData(true); Tela não fecha
         abrirFecharModalExcluir();
+        alert("Cliente excluido com sucesso!");
       })
       .catch((error) => {
         console.log(error);
@@ -128,6 +133,10 @@ export default function Clientes() {
           onClick={() => abrirFecharModalIncluir()}
         >
           <i className="fas fa-plus me-2"></i>Incluir Novo Cliente
+        </Button>
+        <Button
+          variant="outline-secondary"
+          onClick={() => gerarPdf(data)} className="btn btn-sm btn-outline-danger me-2"><i className="far fa-file-pdf"></i> Gerar PDF
         </Button>
       </header>
       <table className="table table-striped table-hover">
