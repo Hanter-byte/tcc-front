@@ -1,12 +1,13 @@
 import pdfMake from 'pdfmake/build/pdfmake'
 import pdfFonts from 'pdfmake/build/vfs_fonts'
 
-function clientesPDF(clientes) {
+function gerarPdf(clientes) {
+
     pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
     const reportTitle = [
         {
-            text: 'Clientes',
+            text: 'Relatório de Clientes',
             fontSize: 15,
             bold: true,
             margin: [15, 20, 0, 45] // left, top, right, bottom
@@ -26,10 +27,10 @@ function clientesPDF(clientes) {
         {
             table: {
                 headerRows: 1,
-                widths: ['*', '*', '*', '*'],
+                widths: [10, '*', '*', '*'],
                 body: [
                     [
-                        { text: 'Código', style: 'tableHeader', fontSize: 10 },
+                        { text: 'ID', style: 'tableHeader', fontSize: 10 },
                         { text: 'Nome', style: 'tableHeader', fontSize: 10 },
                         { text: 'E-mail', style: 'tableHeader', fontSize: 10 },
                         { text: 'Telefone', style: 'tableHeader', fontSize: 10 }
@@ -61,7 +62,7 @@ function clientesPDF(clientes) {
         footer: Rodape
     }
 
-    pdfMake.createPdf(docDefinitios).download();
+    pdfMake.createPdf(docDefinitios).open();
 }
 
-export default clientesPDF;
+export default gerarPdf;

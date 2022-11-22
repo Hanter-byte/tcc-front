@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
+import gerarPdf from '../../components/Relatorios/GerarPdfProduto';
 
 export default function Produtos() {
 
@@ -120,6 +121,10 @@ export default function Produtos() {
       <header>
         <img src={logoCadastro} alt='Cadastro' />
         <Button variant='outline-secondary' onClick={() => abrirFecharModalIncluir()}><i className='fas fa-plus me-2'></i>Incluir Novo Produto</Button>
+        <Button
+          variant="outline-secondary"
+          onClick={() => gerarPdf(data)} className="btn btn-sm btn-outline-danger me-2"><i className="far fa-file-pdf"></i> Gerar PDF
+        </Button>
       </header>
       <table className='table table-striped table-hover'>
         <thead className='table-dark mt-3'>
@@ -145,8 +150,8 @@ export default function Produtos() {
               <td>{produto.imagemUrl}</td>
               <td>{produto.categoriaId}</td>
               <td>
-                <button className='btn btn-sm btn-outline-primary me-2' onClick={() => selecionarProduto(produto, "Editar")}> <i className='fas fa-user-edit me-2'></i>Editar</button> {" "}
-                <button className='btn btn-sm btn-outline-danger me-2' onClick={() => selecionarProduto(produto, "Excluir")}>  <i className='fas fa-user-times me-2'></i>Excluir</button>
+                <button className='btn btn-sm btn-outline-primary me-2' onClick={() => selecionarProduto(produto, "Editar")}> <i className='fa fa-cube me-2' ></i>Editar</button> {" "}
+                <button className='btn btn-sm btn-outline-danger me-2' onClick={() => selecionarProduto(produto, "Excluir")}> <i className='fa fa-cube me-2' ></i>Excluir</button>
               </td>
             </tr>
           ))}

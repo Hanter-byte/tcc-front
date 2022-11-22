@@ -9,8 +9,7 @@ import { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
-
-import gerarPdf from '../../components/GerarPdf';
+import gerarPdf from '../../components/Relatorios/GerarPdfCliente';
 
 export default function Clientes() {
 

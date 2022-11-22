@@ -126,8 +126,8 @@ export default function Categorias() {
               <td>{categoria.nome}</td>
               <td>{categoria.imagemUrl}</td>
               <td>
-                <button className='btn btn-sm btn-outline-primary me-2' onClick={() => selecionarCategoria(categoria, "Editar")}> <i className='fas fa-user-edit me-2'></i>Editar</button> {" "}
-                <button className='btn btn-sm btn-outline-danger me-2' onClick={() => selecionarCategoria(categoria, "Excluir")}> <i className='fas fa-user-times me-2'></i>Excluir</button>
+                <button className='btn btn-sm btn-outline-primary me-2' onClick={() => selecionarCategoria(categoria, "Editar")}> <i className='fa fa-tags me-2'></i>Editar</button> {" "}
+                <button className='btn btn-sm btn-outline-danger me-2' onClick={() => selecionarCategoria(categoria, "Excluir")}> <i className='fa fa-tags me-2'></i>Excluir</button>
               </td>
             </tr>
           ))}
