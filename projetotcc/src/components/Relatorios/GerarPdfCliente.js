@@ -4,13 +4,15 @@ import pdfFonts from 'pdfmake/build/vfs_fonts'
 function gerarPdf(clientes) {
 
     pdfMake.vfs = pdfFonts.pdfMake.vfs;
+    
+    const today = new Date();
 
     const reportTitle = [
         {
-            text: 'Relatório de Clientes',
+            text: 'HardwareTech  -  ' + 'Relatório de Clientes - ' + today.toLocaleDateString(),
             fontSize: 15,
             bold: true,
-            margin: [15, 20, 0, 45] // left, top, right, bottom
+            margin: [15, 20, 0, 45]
         }
     ];
 

@@ -9,9 +9,9 @@ import { useEffect, useState } from 'react';
 
 export default function Categorias() {
   
-  const baseUrl = "https://localhost:44340/api/categorias";
+  const baseUrl = "https://localhost:7121/api/categorias";
   const [data, setData] = useState([]);
-  const [setUpdateData] = useState(true);
+  //const [setUpdateData] = useState(true);
   const [modalIncluir, setModalIncluir] = useState(false);
   const [modalEditar, setModalEditar] = useState(false);
   const [modalExcluir, setModalExcluir] = useState(false);
@@ -113,7 +113,7 @@ export default function Categorias() {
       <table className='table table-striped table-hover'>
         <thead className='table-dark mt-3'>
           <tr>
-            <th>Id</th>
+            {/* <th>Id</th> */}
             <th>Nome</th>
             <th>ImagemUrl</th>
             <th>Operação</th>
@@ -122,7 +122,7 @@ export default function Categorias() {
         <tbody>
           {data.map(categoria => (
             <tr key={categoria.categoriaId}>
-              <td>{categoria.categoriaId}</td>
+              {/* <td>{categoria.categoriaId}</td> */}
               <td>{categoria.nome}</td>
               <td>{categoria.imagemUrl}</td>
               <td>

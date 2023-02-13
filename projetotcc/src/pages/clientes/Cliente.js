@@ -13,9 +13,9 @@ import gerarPdf from '../../components/Relatorios/GerarPdfCliente';
 
 export default function Clientes() {
 
-  const baseUrl = "https://localhost:44340/api/clientes";
+  const baseUrl = "https://localhost:7121/api/clientes";
   const [data, setData] = useState([]);
-  const [setUpdateData] = useState(true);
+  //const [setUpdateData] = useState(true);
   const [modalIncluir, setModalIncluir] = useState(false);
   const [modalEditar, setModalEditar] = useState(false);
   const [modalExcluir, setModalExcluir] = useState(false);
@@ -141,7 +141,7 @@ export default function Clientes() {
       <table className="table table-striped table-hover">
         <thead className="table-dark mt-3">
           <tr>
-            <th>Id</th>
+           {/*  <th>Id</th> */}
             <th>Cpf</th>
             <th>Nome</th>
             <th>Email</th>
@@ -152,7 +152,7 @@ export default function Clientes() {
         <tbody>
           {data.map((cliente) => (
             <tr key={cliente.clienteId}>
-              <td>{cliente.clienteId}</td>
+              {/* <td>{cliente.clienteId}</td> */}
               <td>{cliente.cpf}</td>
               <td>{cliente.nome}</td>
               <td>{cliente.email}</td>

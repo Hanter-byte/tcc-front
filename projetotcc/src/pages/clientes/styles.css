@@ -23,9 +23,9 @@
     transition: border-color 0.5s;
   }
   
-  .cliente-container header button:hover{
+  /* .cliente-container header button:hover{
     border-color: black;
-  }
+  } */
   
   table, th, td {
     border: 1px solid black;

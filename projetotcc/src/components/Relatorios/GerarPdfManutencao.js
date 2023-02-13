@@ -1,7 +1,7 @@
 import pdfMake from 'pdfmake/build/pdfmake'
 import pdfFonts from 'pdfmake/build/vfs_fonts'
 
-function gerarPdf(produtos) {
+function gerarPdf(manutencoes) {
 
     pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -9,22 +9,21 @@ function gerarPdf(produtos) {
 
     const reportTitle = [
         {
-            text:'HardwareTech - ' +  'Relatório de Produtos - ' + today.toLocaleDateString(),
+            text:'HardwareTech - ' + 'Relatório de Manutenções - ' + today.toLocaleDateString(),
             fontSize: 15,
             bold: true,
             margin: [15, 20, 0, 45]
         }
     ];
 
-    const dados = produtos.map((produto) => {
+    const dados = manutencoes.map((manutencao) => {
         return [
-            { text: produto.produtoId, fontSize: 9, margin: [0, 2, 0, 2] },
-            { text: produto.nome, fontSize: 9, margin: [0, 2, 0, 2] },
-            { text: produto.descricao, fontSize: 9, margin: [0, 2, 0, 2] },
-            { text: 'R$ ' + produto.preco, fontSize: 9, margin: [0, 2, 0, 2] },
-            { text: produto.estoque, fontSize: 9, margin: [0, 2, 0, 2] },
-            { text: produto.imagemUrl, fontSize: 9, margin: [0, 2, 0, 2] },
-            { text: produto.categoriaId, fontSize: 9, margin: [0, 2, 0, 2] }
+            { text: manutencao.manutencaoId, fontSize: 9, margin: [0, 2, 0, 2] },
+            { text: manutencao.nome, fontSize: 9, margin: [0, 2, 0, 2] },
+            { text: manutencao.descricao, fontSize: 9, margin: [0, 2, 0, 2] },
+            { text: 'R$ ' + manutencao.preco, fontSize: 9, margin: [0, 2, 0, 2] },
+            { text: manutencao.clienteId, fontSize: 9, margin: [0, 2, 0, 2] },
+            { text: manutencao.produtoId, fontSize: 9, margin: [0, 2, 0, 2] }
         ]
     });
 
@@ -39,9 +38,8 @@ function gerarPdf(produtos) {
                         { text: 'Nome', style: 'tableHeader', fontSize: 10 },
                         { text: 'Descricao', style: 'tableHeader', fontSize: 10 },
                         { text: 'Preço', style: 'tableHeader', fontSize: 10 },
-                        { text: 'Estoque', style: 'tableHeader', fontSize: 10 },
-                        { text: 'ImagemUrl', style: 'tableHeader', fontSize: 10 },
-                        { text: 'CategoriaId', style: 'tableHeader', fontSize: 10 }
+                        { text: 'ClienteId', style: 'tableHeader', fontSize: 10 },
+                        { text: 'ProdutoId', style: 'tableHeader', fontSize: 10 }
                     ],
                     ...dados
                 ]

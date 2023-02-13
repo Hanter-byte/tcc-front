@@ -13,9 +13,9 @@ import gerarPdf from '../../components/Relatorios/GerarPdfProduto';
 
 export default function Produtos() {
 
-  const baseUrl = "https://localhost:44340/api/produtos";
+  const baseUrl = "https://localhost:7121/api/produtos";
   const [data, setData] = useState([]);
-  const [setUpdateData] = useState(true);
+  //const [setUpdateData] = useState(true);
   const [modalIncluir, setModalIncluir] = useState(false);
   const [modalEditar, setModalEditar] = useState(false);
   const [modalExcluir, setModalExcluir] = useState(false);
@@ -129,7 +129,7 @@ export default function Produtos() {
       <table className='table table-striped table-hover'>
         <thead className='table-dark mt-3'>
           <tr>
-            <th>Id</th>
+           {/*  <th>Id</th> */}
             <th>Nome</th>
             <th>Descrição</th>
             <th>Preço</th>
@@ -142,7 +142,7 @@ export default function Produtos() {
         <tbody>
           {data.map(produto => (
             <tr key={produto.produtoId}>
-              <td>{produto.produtoId}</td>
+              {/* <td>{produto.produtoId}</td> */} 
               <td>{produto.nome}</td>
               <td>{produto.descricao}</td>
               <td>R${produto.preco}</td>
@@ -190,6 +190,16 @@ export default function Produtos() {
               <Form.Label>CategoriaId</Form.Label>
               <Form.Control type="text" name="categoriaid" onChange={handleChange} />
             </Form.Group>
+            {/* <Form.Group className="form-group col-md-4">
+                <label for="inputState">CategoriaId</label>
+                <select id="inputState" class="form-control">
+                  <option selected>Selecione...</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+            </Form.Group> */}
           </Form>
         </ModalBody>
         <ModalFooter>

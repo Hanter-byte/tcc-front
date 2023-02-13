@@ -11,12 +11,13 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import { TbEdit } from 'react-icons/tb';
 import { RiDeleteBin2Line } from 'react-icons/ri';
+import gerarPdf from '../../components/Relatorios/GerarPdfManutencao';
 
 export default function Manutencoes() {
 
-  const baseUrl = "https://localhost:44340/api/manutencoes";
+  const baseUrl = "https://localhost:7121/api/manutencoes";
   const [data, setData] = useState([]);
-  const [setUpdateData] = useState(true);
+  //const [setUpdateData] = useState(true);
   const [modalIncluir, setModalIncluir] = useState(false);
   const [modalEditar, setModalEditar] = useState(false);
   const [modalExcluir, setModalExcluir] = useState(false);
@@ -135,6 +136,10 @@ export default function Manutencoes() {
         >
           <i className="fas fa-plus me-2"></i>Nova Manutencão
         </Button>
+        <Button
+          variant="outline-secondary"
+          onClick={() => gerarPdf(data)} className="btn btn-sm btn-outline-danger me-2"><i className="far fa-file-pdf"></i> Gerar PDF
+        </Button>
       </header>
 
       <br></br>
@@ -208,7 +213,7 @@ export default function Manutencoes() {
               type="text"
               className="form-control"
               readOnly
-              value={manutencaoSelecionado && manutencaoSelecionado.clienteId}
+              value={manutencaoSelecionado && manutencaoSelecionado.manutencaoId}
             />
             <br />
             <label>Nome: </label>
@@ -236,7 +241,7 @@ export default function Manutencoes() {
             <input
               type="text"
               className="form-control"
-              name="clienteid"
+              name="clienteId"
               onChange={handleChange}
               value={manutencaoSelecionado && manutencaoSelecionado.clienteId}
             />
@@ -246,7 +251,7 @@ export default function Manutencoes() {
             <input
               type="text"
               className="form-control"
-              name="produtoid"
+              name="produtoId"
               onChange={handleChange}
               value={manutencaoSelecionado && manutencaoSelecionado.produtoId}
             />
